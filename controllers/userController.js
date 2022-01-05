@@ -9,6 +9,7 @@ const getUser = async(req,res)=>{
     const ref =  await firestore.collection("Users").doc(uid).collection("Details").doc("Details")
     const data = await ref.get();
     if(data.empty){
+      console.log("no user")
       res.status(400).send("No User")
     }else{
       const temp = await data.data();
