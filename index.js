@@ -41,7 +41,7 @@ const curStart = new GitHubStrategy({
 passport.use(curStart);
 
 // routes for passport auth
-app.get("/auth/github", passport.authenticate('github', {session: false, scope=["user:email"]}));
+app.get("/auth/github", passport.authenticate('github', {session: false}));
 app.get(
   '/auth/github/callback/',
   passport.authenticate('github',{session: false}),
