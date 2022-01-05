@@ -45,6 +45,7 @@ const getMe = async(req,res)=>{
     try{
       const payload = jwt.verify(token,process.env.SECRET)
       uid = payload.email
+      console.log(uid)
     }catch(err){
       res.send({})
       return;
