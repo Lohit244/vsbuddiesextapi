@@ -35,6 +35,7 @@ const curStart = new GitHubStrategy({
   callbackURL: "https://vsbuddiesextension.herokuapp.com/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
+      console.log(profile)
       cb(null, {token: jwt.sign({email: profile.emails[0].value}, SECRET, {expiresIn: '1y'})});
   })
 passport.use(curStart);
