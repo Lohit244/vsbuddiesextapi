@@ -23,6 +23,7 @@ const getUser = async(req,res)=>{
     }
   }
   catch(error){
+    console.log(error)
     res.status(400).send(error.message);
   }
 }
@@ -64,6 +65,7 @@ const getMe = async(req,res)=>{
     }
   }
   catch(error){
+    console.log(error)
     res.status(400).send(error.message);
   }
 }

@@ -63,7 +63,7 @@ const sendMessage = async(req,res)=>{
       }
       try{
         const payload = jwt.verify(token,process.env.SECRET)
-       uid = payload.email
+        uid = payload.email
       }catch(err){
         res.send({})
         return;
@@ -95,6 +95,7 @@ const sendMessage = async(req,res)=>{
       res.send({})
         return;
   }catch(err){
+    console.log(err)
     res.status(400).send(err.message)
   }
 }
