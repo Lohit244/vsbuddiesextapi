@@ -32,7 +32,7 @@ const curStart = new GitHubStrategy({
   clientID: GITHUB_CLIENT_ID,
   clientSecret: GITHUB_CLIENT_SECRET,
   scope: ["user:email"],
-  callbackURL: "http://localhost:3001/auth/github/callback"
+  callbackURL: "https://vsbuddiesextension.herokuapp.com/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
       cb(null, {token: jwt.sign({email: profile.emails[0].value}, SECRET, {expiresIn: '1y'})});
@@ -56,6 +56,6 @@ app.use('/mdata', messageRoutes.routes);
 app.use("/ext",extensionRoutes.routes)
 
 // start on port 3001
-app.listen(3001,()=>{
+app.listen(process.env.PORT||3001,()=>{
   console.log("running!")
 })
