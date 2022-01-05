@@ -31,7 +31,7 @@ app.use(passport.initialize())
 const curStart = new GitHubStrategy({
   clientID: GITHUB_CLIENT_ID,
   clientSecret: GITHUB_CLIENT_SECRET,
-  scope: ["user:email"],
+  scope: ["read:user"],
   callbackURL: "https://vsbuddiesextension.herokuapp.com/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
