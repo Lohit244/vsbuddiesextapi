@@ -15,7 +15,7 @@ See the instructions on [This Link](https://github.com/Lohit244/vsbuddies-websit
 ```bash
 npm i 
 ```
-3. Create a .env file at the root folder and add add your firebase keys
+3. Create a .env file at the root folder and add add your firebase keys using .env.example for the key names
 4. The last variable in .env is SECRET which is a long string used for jwt so make sure it is not easily guessable
 5. Optional install nodemon 
 ```bash
