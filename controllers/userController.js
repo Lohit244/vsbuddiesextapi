@@ -53,7 +53,9 @@ const getMe = async(req,res)=>{
     const ref =  firestore.collection("Users").doc(uid).collection("Details").doc("Details")
     const data = await ref.get();
     if(data.empty){
-      res.status(400).send("No User")
+      const user = new User("","","")
+      res.send(user);
+      return
     }else{
       const temp = await data.data();
       const user = new User(
