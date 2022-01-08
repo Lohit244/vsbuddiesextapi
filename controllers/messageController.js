@@ -27,9 +27,7 @@ const getMessages = async(req,res)=>{
 
     const ref =  await firestore.collection("Users").doc(uid).collection("Messages").orderBy("createdAt")
     const data = await ref.get();
-    if(data.empty){
-      res.status(400).send("No Messages")
-    }else{
+    
       const messagesArray = [];
       await data.docs.forEach(async(doc)=>{
         const temp = await doc.data();
@@ -41,7 +39,6 @@ const getMessages = async(req,res)=>{
         messagesArray.push(message);
       })
       res.send(messagesArray)
-    }
   }
   catch(error){
     res.status(400).send(error.message);
