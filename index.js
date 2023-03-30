@@ -32,7 +32,7 @@ const curStart = new GitHubStrategy({
   clientID: GITHUB_CLIENT_ID,
   clientSecret: GITHUB_CLIENT_SECRET,
   scope: ["user:email"],
-  callbackURL: "https://vsbuddiesextension.herokuapp.com/auth/github/callback"
+  callbackURL: `${process.env.CALLBACK_URL}/auth/github/callback`
   },
   function(accessToken, refreshToken, profile, cb) {
       console.log(profile)
